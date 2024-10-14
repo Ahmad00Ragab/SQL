@@ -1,0 +1,126 @@
+what are the datatypes in sql?
+1. int
+2. varchar
+3. Decimal
+4. Blob 
+5. date 
+
+how to create table in sql?
+- create table table_name(
+    col datatype constraint,
+    col2 datatype constraint,
+    .
+    .
+    primary key(col),
+    foreign key(col2) references table_name(primary key) on delete set null 
+);
+
+how to delete a table?
+- drop table table_name;
+
+how to drop a foreign key?
+- alter table table_name
+drop foreign key foreignKeyName;
+
+
+what are the views?
+views are virtual tables that represent the result set of select query.
+
+how to add a column in a table?
+- alter table table_name
+add column_name datatype constraint;
+
+how to remove column from a table?
+- alter table table_name
+drop column column_name;
+
+how to drop a primary and add it again?
+- alter table table_name
+drop primary key;
+
+- alter table table_name
+add primar key(column_name) constraint;
+
+how to concatenate in SQL?
+- select concat("ahmad"," haroun") as "full_name";
+
+how to drop a foreign key?
+- alter table table_name
+drop foreign key foreignKeyName; // foreignKeyName from the metadata of the table.
+
+what is an 'as' operator?
+it gives an alias for the result set , the column or a result of an aggregate function.
+
+what is an aggregate function?
+it is a function that works on multiple values and return a single value.
+
+what is the order of execution of the SQL Clauses?
+1. From 
+2. Where
+3. Group By
+4. Aggregate functions
+
+5. Having
+6. Select
+7. Distinct
+8. Order By
+9. Limit
+
+what is the wild card in SQL?
+it is a special character that is used in conjunction with the 'Like' clause to make the pattern matching 
+in string comparison
+
+what is UNION?
+it is a set operator(which means that works on two or more sets of results) that combine the two sets together
+and it removes the duplicates by default.
+
+what is join?
+it is the process of combining the rows from two or more tables based on a common column between them.
+
+what is a trigger?
+trigger is a set of statments that can be executed automatically when a certain event happens in the database.
+
+what is ERD ?
+it is a visual representation of the structure of the database and it is produced in the desing phase.
+
+what is the difference between Having and Where?
+1. 
+Having:  used only with ==> Group by 
+Where :  used with any clasuse 
+2. 
+Having ==> working on summary rows 
+where  ==> working on individal rows 
+
+
+what is normalization?
+it is the process of reorganizing the data in a way that prevents the data redundancy and dependency.
+
+what is the difference between schema and database?
+schema   : is a logical subset of the database representing a set of database objects that are related to each other
+database : is the entire data that is represented by the database objects like tables, views, indexes, etc..
+Ex: 
+CompanyDB (Database)
+   ├── HR_Schema (Schema)
+   │     ├── employees (Table)
+   │     ├── salaries (Table)
+   │     └── departments (Table)
+   ├── Sales_Schema (Schema)
+   │     ├── customers (Table)
+   │     ├── orders (Table)
+   │     └── invoices (Table)
+   └── Finance_Schema (Schema)
+         ├── expenses (Table)
+         ├── budgets (Table)
+         └── transactions (Table)
+
+
+What are the categories of SQL Commands?
+1. DDL (Data Definition Language)   : Create, Alter, Truncate, Drop, Rename
+2. DML (Data Manipulation Language) : Insert, Delete, Update 
+3. DQL (Data Query Language)        : Select 
+4. TCL (Transaction Conrol Language): Commit, Rollback, Save Point 
+5. DCL (Data Conrol Language)       : Grant, Revoke 
+
+
+
+
