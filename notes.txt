@@ -5,6 +5,12 @@ what are the datatypes in sql?
 4. Blob 
 5. date 
 
+and all of them under three categories:
+a. numerical
+b. text
+c. time/Date
+
+
 how to create table in sql?
 - create table table_name(
     col datatype constraint,
@@ -37,7 +43,6 @@ drop column column_name;
 how to drop a primary and add it again?
 - alter table table_name
 drop primary key;
-
 - alter table table_name
 add primar key(column_name) constraint;
 
@@ -46,7 +51,7 @@ how to concatenate in SQL?
 
 how to drop a foreign key?
 - alter table table_name
-drop foreign key foreignKeyName; // foreignKeyName from the metadata of the table.
+drop foreign key foreignKeyName;  // foreignKeyName from the metadata of the table.
 
 what is an 'as' operator?
 it gives an alias for the result set , the column or a result of an aggregate function.
@@ -59,9 +64,9 @@ what is the order of execution of the SQL Clauses?
 2. Where
 3. Group By
 4. Aggregate functions
-
 5. Having
 6. Select
+
 7. Distinct
 8. Order By
 9. Limit
@@ -95,6 +100,7 @@ where  ==> working on individal rows
 what is normalization?
 it is the process of reorganizing the data in a way that prevents the data redundancy and dependency.
 
+
 what is the difference between schema and database?
 schema   : is a logical subset of the database representing a set of database objects that are related to each other
 database : is the entire data that is represented by the database objects like tables, views, indexes, etc..
@@ -122,5 +128,30 @@ What are the categories of SQL Commands?
 5. DCL (Data Conrol Language)       : Grant, Revoke 
 
 
+how to check if a value of an attribute is null?
+by using 'is null' operator because we can not use  [ = null ] ==> becuase '=' operator is applied only on numbers or texts 
 
+------ Logical operators --------
+and  ==> select * from employees where fname = "ahmad" and salary=1500;
+or   ==> select * from employees where fname = "ahmad" or salary=1500;
+not  ==> select * from employees where not fname = "ahmad";
+
+------ Between  &  Not Between operators --------
+select * from employees where salary between 15000 and 25000;
+select * from employees where salary not between 15000 and 25000;
+
+------ IN  &  Not IN operators --------
+select * form employees where salary in(10000,20000,30000); // get the salary that matches any of those 
+select * form employees where salary not in(10000,20000,30000);
+
+what are the data Definition Language commands?
+1. create 
+2. alter
+3. drop 
+4. Rename 
+5. Truncate
+
+--- create ---
+used to create a database object in the database.
+--- alter ---
 
