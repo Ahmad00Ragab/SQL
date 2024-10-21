@@ -21,8 +21,10 @@ how to create table in sql?
     foreign key(col2) references table_name(primary key) on delete set null 
 );
 
+
 how to delete a table?
 - drop table table_name;
+
 
 how to drop a foreign key?
 - alter table table_name
@@ -32,13 +34,16 @@ drop foreign key foreignKeyName;
 what are the views?
 views are virtual tables that represent the result set of select query.
 
+
 how to add a column in a table?
 - alter table table_name
 add column_name datatype constraint;
 
+
 how to remove column from a table?
 - alter table table_name
 drop column column_name;
+
 
 how to drop a primary and add it again?
 - alter table table_name
@@ -46,18 +51,23 @@ drop primary key;
 - alter table table_name
 add primar key(column_name) constraint;
 
+
 how to concatenate in SQL?
 - select concat("ahmad"," haroun") as "full_name";
+
 
 how to drop a foreign key?
 - alter table table_name
 drop foreign key foreignKeyName;  // foreignKeyName from the metadata of the table.
 
+
 what is an 'as' operator?
 it gives an alias for the result set , the column or a result of an aggregate function.
 
+
 what is an aggregate function?
 it is a function that works on multiple values and return a single value.
+
 
 what is the order of execution of the SQL Clauses?
 1. From 
@@ -66,31 +76,36 @@ what is the order of execution of the SQL Clauses?
 4. Aggregate functions
 5. Having
 6. Select
-
 7. Distinct
 8. Order By
 9. Limit
 
+
 what is the wild card in SQL?
-it is a special character that is used in conjunction with the 'Like' clause to make the pattern matching 
-in string comparison
+it is a special character represents a single character or more that is used in conjunction
+with the 'Like' clause to make the pattern matching in string comparison
+
 
 what is UNION?
 it is a set operator(which means that works on two or more sets of results) that combine the two sets together
 and it removes the duplicates by default.
 
+
 what is join?
 it is the process of combining the rows from two or more tables based on a common column between them.
+
 
 what is a trigger?
 trigger is a set of statments that can be executed automatically when a certain event happens in the database.
 
+
 what is ERD ?
 it is a visual representation of the structure of the database and it is produced in the desing phase.
 
+
 what is the difference between Having and Where?
 1. 
-Having:  used only with ==> Group by 
+Having:  used only with ==> Group by and aggregate functions
 Where :  used with any clasuse 
 2. 
 Having ==> working on summary rows 
@@ -99,6 +114,7 @@ where  ==> working on individal rows
 
 what is normalization?
 it is the process of reorganizing the data in a way that prevents the data redundancy and dependency.
+and decomposing the larger tables into small managable tables.
 
 
 what is the difference between schema and database?
@@ -121,7 +137,7 @@ CompanyDB (Database)
 
 
 What are the categories of SQL Commands?
-1. DDL (Data Definition Language)   : Create, Alter, Truncate, Drop, Rename
+1. DDL (Data Definition Language)   : Create, Alter, Drop, Truncate, Rename
 2. DML (Data Manipulation Language) : Insert, Delete, Update 
 3. DQL (Data Query Language)        : Select 
 4. TCL (Transaction Conrol Language): Commit, Rollback, Save Point 
@@ -144,7 +160,7 @@ select * from employees where salary not between 15000 and 25000;
 select * form employees where salary in(10000,20000,30000); // get the salary that matches any of those 
 select * form employees where salary not in(10000,20000,30000);
 
-what are the data Definition Language commands?
+what are the data Definition Language (DDL) commands?
 1. create 
 2. alter
 3. drop 
@@ -152,6 +168,103 @@ what are the data Definition Language commands?
 5. Truncate
 
 --- create ---
-used to create a database object in the database.
+used to create a database object in the database.  ==> create table table_name;
 --- alter ---
+used to modify the sturucture of the database object
+    & add column
+    & drop column 
+    & modify column  
+--- drop --
+used to destry a database object ==> drop table table_name;
+--- rename ---
+used to rename a database object ==> rename table table_name1 to table_name2;
+--- Truncate --- 
+used to permanently delete the data inside a database object. ==> Truncate table table_name;
 
+
+What is the difference between Truncate and Delete?
+Truncate table table_name; // deletes all the data inside this table permanently (No RollBack)
+delete from table_name;    // deletes all the data inside this table temporarily (Can be RolledBack)
+
+what is the difference between stored procedures and built-in functions?
+- stored procedures  : a group of sequenced statements may return a value or not and can control the transaction (start, commit, rollback) and is called user [ 'Call' or 'Exec' keywords]
+- built-in function : a ready-made function that is must return a value and can not control the transaction and is called using its name.
+
+--------- Functions  ----------
+what are the functions types in SQL?
+1. String Functions : works on string data types 
+2. Numberic Functions : works on numbers data types 
+3. Date Functions :  works on Date data types rows
+4. Aggregate Functions : works on all data types and results in summarized result sets  
+
+A. ------- String Functions ----
+1. upper("string")
+2. lower("string")
+3. length("string")
+4. trim("  string  ")  // remove the spaces from the start and end of the string  
+5. instr("string","char") // returns the position of a char inside a string 
+6. substr("string",start_index,number_of_chars) // the string is 1-based indexing
+7. Concat("str1","str2") // returns "str1" + "str2" 
+
+B. ------- Numbers Functions ----
+1. abs(-number)
+2. mod(number1,number2)
+3. sqrt(number)
+4. power(number,power)
+5. truncate(decimal,number) // leave after the decimal point (.) 'number' of digits 
+    ex. truncate(10.256,2) ==> // 10.25 
+    ex. truncate(10.256,3) ==> // 10.000 
+    ex. truncate(10256,3) ==> // 10000 
+6. Greatest(numbers_list)
+7. least(numbers_list)
+
+C. ------- Date Functions ----
+1. curdate() or current_date(); ==> both the same 
+2. curtime() or current_time(); ==> both the same 
+3. now()  // returns date + time
+4. month("date") // returns month
+5. year("date") // returns year
+6. day("date") // returns day
+
+D. ------- Aggregate Functions ----
+what is aggregate function?
+it is all about performing calculations over multiple rows of a single column and resulting a single value
+1. Min()
+2. Max()
+3. Sum()
+4. AVG()
+5. Count()
+
+------------ Group By -----------
+grouping multiple rows into a summary rows
+
+----- Having ------
+Used only with Group By and it is applied on summary row 
+
+--- order by ----
+sorting the result set (default is ascending)
+
+------- Union & Union All -------
+union is a set operator that works on two or more of two sets of results and combine the results  
+
+----- joins ------
+it is the process of combining the rows from two tables or more based on a common column 
+
+what are the types of joins:
+1. inner join
+2. left outer join
+3. right outer join
+4. full join
+
+------ subquery ------
+it is a query inside another query, the outer query works on the results of the inner query 
+
+how to find the second max salary?
+select max(salary) from employees where salary<(select max(salary) from employees);
+
+What are the types of the inner query?
+there are two types of inner queries:
+1. single row subquery ==> used with it : <>,  =,  <=,  >= 
+2. multi row subquery  ==> used with it : IN, <ALL, >ALL, <ANY, >ANY
+
+------- Integerity Constraints ---------
